@@ -1,9 +1,12 @@
 <!DOCTYPE html>
+    <!-- TODO: SWAP THIS OUT WITH SOCIALS -->
+    <!-- TODO: CREATE GOOGLE MAPS REVIEWS SCROLLABLE STUFF -->
+    <!-- TODO: MAKE THE GALLERY LARGER AND THE PICTURES CLICKABLE -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Power Plate Fitness - Premium Gym & Fitness Center</title>
+    <title>Power Plate Fitness</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-white text-gray-900">
@@ -12,17 +15,15 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex-shrink-0">
-                    <a href="#home" class="text-2xl font-bold text-blue-600">Power Plate Fitness</a>
+                    <a href="#home" class="text-2xl font-bold text-red-500">Power Plate Fitness</a>
                 </div>
                 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="hover:text-blue-600 transition">Home</a>
-                    <a href="#about" class="hover:text-blue-600 transition">About</a>
-                    <a href="#gallery" class="hover:text-blue-600 transition">Gallery</a>
-                    <a href="#equipment" class="hover:text-blue-600 transition">Equipment</a>
-                    <a href="#hours" class="hover:text-blue-600 transition">Hours</a>
-                    <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
+                    <a href="#about" class="hover:text-blue-600 transition">Despre Noi</a>
+                    <a href="#gallery" class="hover:text-blue-600 transition">Galerie</a>
+                    <a href="#equipment" class="hover:text-blue-600 transition">Echipamente</a>
+                    <a href="#info" class="hover:text-blue-600 transition">Info</a>
                 </div>
 
                 <!-- Mobile Menu Button -->
@@ -35,24 +36,22 @@
 
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="hidden md:hidden pb-4 space-y-2">
-                <a href="#home" class="block px-2 py-2 hover:bg-blue-50 rounded transition">Home</a>
-                <a href="#about" class="block px-2 py-2 hover:bg-blue-50 rounded transition">About</a>
-                <a href="#gallery" class="block px-2 py-2 hover:bg-blue-50 rounded transition">Gallery</a>
-                <a href="#equipment" class="block px-2 py-2 hover:bg-blue-50 rounded transition">Equipment</a>
-                <a href="#hours" class="block px-2 py-2 hover:bg-blue-50 rounded transition">Hours</a>
-                <a href="#contact" class="block px-2 py-2 hover:bg-blue-50 rounded transition">Contact</a>
+                <a href="#about" class="block px-2 py-2 hover:bg-blue-50 rounded transition">Despre Noi</a>
+                <a href="#gallery" class="block px-2 py-2 hover:bg-blue-50 rounded transition">Galerie</a>
+                <a href="#equipment" class="block px-2 py-2 hover:bg-blue-50 rounded transition">Echipamente</a>
+                <a href="#info" class="block px-2 py-2 hover:bg-blue-50 rounded transition">Info</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="relative h-96 md:h-screen bg-gray-800 text-white overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&h=1080&fit=crop" alt="Hero Banner" class="w-full h-full object-cover opacity-40">
+        <img src="images/hero/hero.jpg" alt="Hero Banner" class="w-full h-full object-cover opacity-40">
         <div class="absolute inset-0 flex items-center justify-center">
             <div class="text-center px-4">
                 <h1 class="text-4xl md:text-6xl font-bold mb-4">Power Plate Fitness</h1>
-                <p class="text-lg md:text-2xl mb-8">Transform Your Body. Transform Your Life.</p>
-                <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition">Get in Touch</a>
+                <p class="text-lg md:text-2xl mb-8">Transformă-ți corpul. Transformă-ți viața.</p>
+                <a href="#contact" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg transition">Get in Touch</a>
             </div>
         </div>
     </section>
@@ -60,28 +59,32 @@
     <!-- About Us Section -->
     <section id="about" class="py-16 md:py-24 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">About Us</h2>
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">Despre Noi</h2>
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <img src="images/about_us/people.jpg" alt="About Us" class="rounded-lg shadow-lg w-full">
                 <div>
                     <p class="text-gray-700 text-lg mb-4">
-                        Welcome to Power Plate Fitness, your premier destination for achieving your fitness goals. With state-of-the-art equipment and a welcoming community, we're committed to helping you reach your full potential.
-                    </p>
+                        Bine ați venit la Power Plate Fitness, destinația ideală pentru atingerea obiectivelor dumneavoastră de fitness.</p>
+                    <p class="text-gray-700 text-lg mb-4 font-bold">Nu suntem o sală obișnuită. Suntem specializați în antrenamente de grup, cu aparate Power Plate.</p>
                     <p class="text-gray-700 text-lg mb-4">
-                        Whether you're a beginner starting your fitness journey or an experienced athlete, our facility and support system are designed to meet your needs.
+                       Vă întrebați probabil ce este un Power Plate? Un Power Plate este o platformă de exerciții vibrante, care utilizează tehnologia de vibrație a întregului corp pentru a stimula mușchii. Este un echipament de calitate medicală, utilizat pe scară largă în domeniul fitnessului medical și al reabilitării.
                     </p>
                     <ul class="space-y-3 text-gray-700">
                         <li class="flex items-center">
                             <span class="text-blue-600 font-bold mr-3">✓</span>
-                            Modern Equipment & Facilities
+                            Echipament Modern
                         </li>
                         <li class="flex items-center">
                             <span class="text-blue-600 font-bold mr-3">✓</span>
-                            Supportive Community
+                            Comunitate Suportivă
                         </li>
                         <li class="flex items-center">
                             <span class="text-blue-600 font-bold mr-3">✓</span>
-                            Flexible Membership Options
+                            Program Flexibil
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-blue-600 font-bold mr-3">✓</span>
+                            Rezultate Garantată
                         </li>
                     </ul>
                 </div>
@@ -168,39 +171,23 @@
         </div>
     </section>
 
-    <!-- Operating Hours Section -->
-    <section id="hours" class="py-16 md:py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">Operating Hours</h2>
-            <div class="grid md:grid-cols-2 gap-12">
-                <div class="bg-blue-50 rounded-lg p-8">
-                    <h3 class="text-2xl font-bold mb-6 text-gray-900">Regular Hours</h3>
-                    <div class="space-y-3 text-gray-700">
-                        <div class="flex justify-between">
-                            <span>Monday - Friday</span>
-                            <span class="font-semibold">8:30 - 19:00</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span>Saturday</span>
-                            <span class="font-semibold">Closed</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span>Sunday</span>
-                            <span class="font-semibold">Closed</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Contact Section -->
-    <section id="contact" class="py-16 md:py-24 bg-gray-50">
+    <section id="info" class="py-16 md:py-24 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">Contact Us</h2>
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">Informații</h2>
             <div class="grid md:grid-cols-2 gap-12">
                 <!-- Contact Info -->
                 <div class="space-y-8">
+                    <div class="space-y-3 text-gray-700 bg-blue-50 rounded-lg p-8">
+                        <div class="flex justify-between">
+                            <span>Luni - Vineri</span>
+                            <span class="font-semibold">8:30 - 19:00</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Sambata - Duminica</span>
+                            <span class="font-semibold">Closed</span>
+                        </div>
+                    </div>
                     <div class="bg-white rounded-lg shadow-md p-6">
                         <h3 class="text-xl font-bold mb-4 text-gray-900">Get In Touch</h3>
                         <div class="space-y-4">
@@ -208,14 +195,17 @@
                                 <span class="text-blue-600 font-bold mr-4 text-xl">📧</span>
                                 <div>
                                     <p class="font-semibold text-gray-900">Email</p>
-                                    <a href="mailto:info@powerplatefitness.com" class="text-blue-600 hover:underline">info@powerplatefitness.com</a>
+                                    <a href="mailto:mghenoiu@yahoo.com" class="text-blue-600 hover:underline">mghenoiu@yahoo.com</a>
                                 </div>
                             </div>
                             <div class="flex items-start">
                                 <span class="text-blue-600 font-bold mr-4 text-xl">📱</span>
                                 <div>
                                     <p class="font-semibold text-gray-900">Phone</p>
-                                    <a href="tel:+1234567890" class="text-blue-600 hover:underline">+1 (234) 567-890</a>
+                                    <a href="tel:+40741551508" class="text-blue-600 hover:underline">+40 (741) 551-508</a>
+                                <div>
+                                    <a href="tel:+40742353170" class="text-blue-600 hover:underline">+40 (742) 353-170</a>
+                                </div>
                                 </div>
                             </div>
                         </div>
@@ -245,18 +235,14 @@
                 <div>
                     <h4 class="font-bold mb-4">Quick Links</h4>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="#about" class="hover:text-white transition">About</a></li>
+                        <li><a href="#about" class="hover:text-white transition">Despre Noi</a></li>
                         <li><a href="#gallery" class="hover:text-white transition">Gallery</a></li>
                         <li><a href="#equipment" class="hover:text-white transition">Equipment</a></li>
                     </ul>
                 </div>
-                <div>
-                    <h4 class="font-bold mb-4">Follow Us</h4>
-                    <p class="text-gray-400">Social media links coming soon!</p>
-                </div>
             </div>
             <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
-                <p>&copy; 2024 Power Plate Fitness. All rights reserved.</p>
+                <p>&copy; 2026 Power Plate Fitness. All rights reserved.</p>
             </div>
         </div>
     </footer>
