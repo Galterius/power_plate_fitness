@@ -62,10 +62,10 @@ function showImage(index) {
     indicators.forEach((indicator, i) => {
         if (i === index) {
             indicator.classList.remove('bg-gray-300', 'hover:bg-gray-400');
-            indicator.classList.add('bg-blue-600');
+            indicator.classList.add('bg-red-500');
         } else {
             indicator.classList.add('bg-gray-300', 'hover:bg-gray-400');
-            indicator.classList.remove('bg-blue-600');
+            indicator.classList.remove('bg-red-500');
         }
     });
 }
@@ -122,9 +122,9 @@ const lightboxClose = document.getElementById('lightbox-close');
 const carouselImages = document.querySelectorAll('#carousel-wrapper img');
 
 const imageMap = {
-    0: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1600&h=1200&fit=crop',
-    1: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=1600&h=1200&fit=crop',
-    2: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1600&h=1200&fit=crop'
+    0: 'images/equipment/eqp.jpg',
+    1: 'images/equipment/cardio-eqp.avif',
+    2: 'images/equipment/free-weights.avif'
 };
 
 // Open lightbox on image click
@@ -155,3 +155,31 @@ document.addEventListener('keydown', (e) => {
         closeLightbox();
     }
 });
+
+// Testimonials navigation
+const testimonialsScroll = document.getElementById('testimonials-scroll');
+const testimonialsPrev = document.getElementById('testimonials-prev');
+const testimonialsNext = document.getElementById('testimonials-next');
+
+if (testimonialsScroll && testimonialsPrev && testimonialsNext) {
+    const scrollAmount = testimonialsScroll.querySelector('.flex > div')?.offsetWidth + 32 || 320 + 32;
+    testimonialsPrev.addEventListener('click', () => {
+        testimonialsScroll.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    });
+    testimonialsNext.addEventListener('click', () => {
+        testimonialsScroll.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    });
+}
+
+// Scroll-reveal animation
+const revealElements = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1 });
+
+revealElements.forEach(el => revealObserver.observe(el));
