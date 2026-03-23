@@ -114,3 +114,44 @@ function handleSwipe() {
         }
     }
 }
+
+// Image Lightbox / Full-size Image Viewer
+const lightbox = document.getElementById('image-lightbox');
+const lightboxImage = document.getElementById('lightbox-image');
+const lightboxClose = document.getElementById('lightbox-close');
+const carouselImages = document.querySelectorAll('#carousel-wrapper img');
+
+const imageMap = {
+    0: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1600&h=1200&fit=crop',
+    1: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=1600&h=1200&fit=crop',
+    2: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1600&h=1200&fit=crop'
+};
+
+// Open lightbox on image click
+document.getElementById('carousel-wrapper').addEventListener('click', () => {
+    lightboxImage.src = imageMap[currentImageIndex];
+    lightbox.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+});
+
+// Close lightbox
+function closeLightbox() {
+    lightbox.classList.add('hidden');
+    document.body.style.overflow = 'auto';
+}
+
+lightboxClose.addEventListener('click', closeLightbox);
+
+// Close lightbox when clicking outside the image
+lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+        closeLightbox();
+    }
+});
+
+// Close lightbox on ESC key press
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) {
+        closeLightbox();
+    }
+});
