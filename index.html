@@ -33,7 +33,7 @@
                 <div class="hidden md:flex space-x-8">
                     <a href="#about" class="hover:text-blue-600 transition">Despre Noi</a>
                     <a href="#testimonials" class="hover:text-blue-600 transition">Recenzii</a>
-                    <a href="#gallery" class="hover:text-blue-600 transition">Galerie</a>
+                    <a href="#socials" class="hover:text-blue-600 transition">Socials</a>
                     <a href="#info" class="hover:text-blue-600 transition">Info</a>
                 </div>
 
@@ -49,7 +49,7 @@
             <div id="mobile-menu" class="hidden md:hidden pb-4 space-y-2">
                 <a href="#about" class="block px-2 py-2 hover:bg-blue-50 rounded transition">Despre Noi</a>
                 <a href="#testimonials" class="block px-2 py-2 hover:bg-blue-50 rounded transition">Recenzii</a>
-                <a href="#gallery" class="block px-2 py-2 hover:bg-blue-50 rounded transition">Galerie</a>
+                <a href="#socials" class="block px-2 py-2 hover:bg-blue-50 rounded transition">Socials</a>
                 <a href="#info" class="block px-2 py-2 hover:bg-blue-50 rounded transition">Info</a>
             </div>
         </div>
@@ -156,13 +156,13 @@ Rezultatele nu se lasă mult timp așteptate.
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="py-10 md:py-16 bg-white reveal">
+    <!-- Gallery + Social Section -->
+    <section id="socials" class="py-10 md:py-16 bg-white reveal">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">Galerie</h2>
-            
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">O scurtă prezentare</h2>
+
             <!-- Carousel Container -->
-            <div class="relative mx-auto">
+            <div class="relative mx-auto mb-12">
                 <div id="gallery-carousel" class="relative overflow-hidden rounded-lg shadow-lg bg-gray-200 cursor-pointer">
                     <div class="relative w-full h-96 md:h-96 lg:h-[600px] touch-none" id="carousel-wrapper">
                         <!-- Carousel Images -->
@@ -189,6 +189,22 @@ Rezultatele nu se lasă mult timp așteptate.
                     <button id="indicator-2" class="carousel-indicator w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition" data-index="2"></button>
                 </div>
             </div>
+
+            <!-- Social Media -->
+            <p class="text-center text-gray-700 text-lg mb-8">Urmărește-ne pentru mai multe</p>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-8">
+                <!-- Facebook -->
+                <a href="https://www.facebook.com/profile.php?id=100089100893123" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg transition transform hover:scale-105">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    <span>Follow on Facebook</span>
+                </a>
+
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/power_plate_fitness/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-4 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold py-4 px-8 rounded-lg transition transform hover:scale-105">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.057-1.645.069-4.849.069-3.204 0-3.584-.012-4.849-.069-3.259-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.322a1.44 1.44 0 110-2.88 1.44 1.44 0 010 2.88z"/></svg>
+                    <span>Follow on Instagram</span>
+                </a>
+            </div>
         </div>
     </section>
 
@@ -202,30 +218,8 @@ Rezultatele nu se lasă mult timp așteptate.
         </div>
     </div>
 
-        <!-- Social Media Section -->
-    <section id="social" class="py-10 md:py-16 bg-gray-50 reveal">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-900">Dacă vrei să vezi mai multe</h2>
-            <p class="text-center text-gray-700 text-lg mb-12">Urmărește-ne pe rețelele de socializare pentru a afla mai multe despre comunitatea noastră, antrenamentele noastre și poveștile de succes!</p>
-            
-            <div class="flex flex-col md:flex-row justify-center items-center gap-8">
-                <!-- Facebook -->
-                <a href="https://www.facebook.com/profile.php?id=100089100893123" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg transition transform hover:scale-105">
-                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                    <span>Follow on Facebook</span>
-                </a>
-                
-                <!-- Instagram -->
-                <a href="https://www.instagram.com/power_plate_fitness/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-4 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold py-4 px-8 rounded-lg transition transform hover:scale-105">
-                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.057-1.645.069-4.849.069-3.204 0-3.584-.012-4.849-.069-3.259-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.322a1.44 1.44 0 110-2.88 1.44 1.44 0 010 2.88z"/></svg>
-                    <span>Follow on Instagram</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
     <!-- Contact Section -->
-    <section id="info" class="py-10 md:py-16 bg-white reveal">
+    <section id="info" class="py-10 md:py-16 bg-gray-50 reveal">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
             <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">Informații</h2>
             <p class="text-center text-gray-700 text-lg mb-12 max-w-3xl mx-auto">Dacă doriți să vă schimbați viața, contactați-ne la numerele de telefon de mai jos sau vizitați-ne la adresa indicată</p>
