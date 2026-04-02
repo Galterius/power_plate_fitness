@@ -162,53 +162,89 @@ const testimonialsPrev = document.getElementById('testimonials-prev');
 const testimonialsNext = document.getElementById('testimonials-next');
 
 if (testimonialsScroll && testimonialsPrev && testimonialsNext) {
-    const scrollAmount = (testimonialsScroll.querySelector('.flex > div')?.offsetWidth + 32 || 320 + 32) * 3;
+    function getCardsToSkip() {
+        return window.innerWidth < 768 ? 1 : 3; // 768px is md breakpoint
+    }
+
+    function getScrollAmount() {
+        const cardsToSkip = getCardsToSkip();
+        return (testimonialsScroll.querySelector('.flex > div')?.offsetWidth + 32 || 320 + 32) * cardsToSkip;
+    }
+
     testimonialsPrev.addEventListener('click', () => {
-        testimonialsScroll.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        testimonialsScroll.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
     });
     testimonialsNext.addEventListener('click', () => {
-        testimonialsScroll.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        testimonialsScroll.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
     });
 }
 
-// Testimonials indicators - Page based
+// Testimonials indicators - Responsive (dots per card on mobile, pages on desktop)
 if (testimonialsScroll) {
     const testimonialCards = testimonialsScroll.querySelectorAll('.snap-start');
     const indicatorsContainer = document.getElementById('testimonial-indicators-container');
-    const cardsPerPage = 3;
     
-    // Calculate number of pages
-    const totalPages = Math.ceil(testimonialCards.length / cardsPerPage);
-    
-    // Create page indicators
-    for (let i = 0; i < totalPages; i++) {
-        const button = document.createElement('button');
-        button.className = 'testimonial-indicator w-3 h-3 rounded-full transition';
-        button.setAttribute('data-page', i);
-        button.classList.add(i === 0 ? 'bg-red-500' : 'bg-gray-300');
-        if (i !== 0) button.classList.add('hover:bg-gray-400');
-        indicatorsContainer.appendChild(button);
+    function isMobile() {
+        return window.innerWidth < 768; // 768px is md breakpoint
     }
     
-    const testimonialIndicators = document.querySelectorAll('.testimonial-indicator');
+    function createIndicators() {
+        indicatorsContainer.innerHTML = ''; // Clear existing indicators
+        
+        const isMobileView = isMobile();
+        const cardsPerPage = 3;
+        let numIndicators;
+        
+        if (isMobileView) {
+            numIndicators = testimonialCards.length; // One dot per card
+        } else {
+            numIndicators = Math.ceil(testimonialCards.length / cardsPerPage); // Pages
+        }
+        
+        // Create indicators
+        for (let i = 0; i < numIndicators; i++) {
+            const button = document.createElement('button');
+            button.className = 'testimonial-indicator w-3 h-3 rounded-full transition';
+            if (isMobileView) {
+                button.setAttribute('data-card', i);
+            } else {
+                button.setAttribute('data-page', i);
+            }
+            button.classList.add(i === 0 ? 'bg-red-500' : 'bg-gray-300');
+            if (i !== 0) button.classList.add('hover:bg-gray-400');
+            indicatorsContainer.appendChild(button);
+        }
+    }
+    
+    createIndicators();
     
     function updateTestimonialIndicators() {
         if (!testimonialsScroll || !testimonialCards[0]) return;
         
+        const isMobileView = isMobile();
+        const cardsPerPage = 3;
         const scrollLeft = testimonialsScroll.scrollLeft;
         const cardWidth = testimonialCards[0].offsetWidth;
         const gap = 32;
-        const scrollAmount = (cardWidth + gap) * cardsPerPage;
         
-        // Calculate which page we're on
-        let currentPage = Math.round(scrollLeft / scrollAmount);
+        let currentIndicator;
         
-        // Clamp to valid range
-        currentPage = Math.max(0, Math.min(currentPage, totalPages - 1));
+        if (isMobileView) {
+            // On mobile: one indicator per card
+            currentIndicator = Math.round(scrollLeft / (cardWidth + gap));
+            currentIndicator = Math.max(0, Math.min(currentIndicator, testimonialCards.length - 1));
+        } else {
+            // On desktop: indicators for pages (3 cards per page)
+            const pageScrollAmount = (cardWidth + gap) * cardsPerPage;
+            currentIndicator = Math.round(scrollLeft / pageScrollAmount);
+            const numPages = Math.ceil(testimonialCards.length / cardsPerPage);
+            currentIndicator = Math.max(0, Math.min(currentIndicator, numPages - 1));
+        }
         
         // Update indicators
+        const testimonialIndicators = document.querySelectorAll('.testimonial-indicator');
         testimonialIndicators.forEach((indicator, i) => {
-            if (i === currentPage) {
+            if (i === currentIndicator) {
                 indicator.classList.remove('bg-gray-300', 'hover:bg-gray-400');
                 indicator.classList.add('bg-red-500');
             } else {
@@ -218,23 +254,48 @@ if (testimonialsScroll) {
         });
     }
     
-    testimonialIndicators.forEach((indicator) => {
-        indicator.addEventListener('click', () => {
-            const page = parseInt(indicator.getAttribute('data-page'));
-            const cardWidth = testimonialCards[0]?.offsetWidth || 320;
-            const gap = 32;
-            const scrollAmount = (cardWidth + gap) * cardsPerPage;
-            testimonialsScroll.scrollTo({
-                left: page * scrollAmount,
-                behavior: 'smooth'
+    // Event listeners for indicators
+    function attachIndicatorListeners() {
+        const testimonialIndicators = document.querySelectorAll('.testimonial-indicator');
+        testimonialIndicators.forEach((indicator) => {
+            indicator.addEventListener('click', () => {
+                const cardWidth = testimonialCards[0]?.offsetWidth || 320;
+                const gap = 32;
+                let scrollPosition;
+                
+                if (isMobile()) {
+                    const card = parseInt(indicator.getAttribute('data-card'));
+                    scrollPosition = card * (cardWidth + gap);
+                } else {
+                    const page = parseInt(indicator.getAttribute('data-page'));
+                    const cardsPerPage = 3;
+                    scrollPosition = page * (cardWidth + gap) * cardsPerPage;
+                }
+                
+                testimonialsScroll.scrollTo({
+                    left: scrollPosition,
+                    behavior: 'smooth'
+                });
             });
         });
-    });
+    }
+    
+    attachIndicatorListeners();
     
     testimonialsScroll.addEventListener('scroll', updateTestimonialIndicators);
+    
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        createIndicators();
+        attachIndicatorListeners();
+        updateTestimonialIndicators();
+    });
+    
     // Initial update
     updateTestimonialIndicators();
 }
+
+
 
 // Scroll-reveal animation
 const revealElements = document.querySelectorAll('.reveal');
