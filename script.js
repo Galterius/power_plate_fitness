@@ -162,13 +162,78 @@ const testimonialsPrev = document.getElementById('testimonials-prev');
 const testimonialsNext = document.getElementById('testimonials-next');
 
 if (testimonialsScroll && testimonialsPrev && testimonialsNext) {
-    const scrollAmount = testimonialsScroll.querySelector('.flex > div')?.offsetWidth + 32 || 320 + 32;
+    const scrollAmount = (testimonialsScroll.querySelector('.flex > div')?.offsetWidth + 32 || 320 + 32) * 3;
     testimonialsPrev.addEventListener('click', () => {
         testimonialsScroll.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
     });
     testimonialsNext.addEventListener('click', () => {
         testimonialsScroll.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     });
+}
+
+// Testimonials indicators - Page based
+if (testimonialsScroll) {
+    const testimonialCards = testimonialsScroll.querySelectorAll('.snap-start');
+    const indicatorsContainer = document.getElementById('testimonial-indicators-container');
+    const cardsPerPage = 3;
+    
+    // Calculate number of pages
+    const totalPages = Math.ceil(testimonialCards.length / cardsPerPage);
+    
+    // Create page indicators
+    for (let i = 0; i < totalPages; i++) {
+        const button = document.createElement('button');
+        button.className = 'testimonial-indicator w-3 h-3 rounded-full transition';
+        button.setAttribute('data-page', i);
+        button.classList.add(i === 0 ? 'bg-red-500' : 'bg-gray-300');
+        if (i !== 0) button.classList.add('hover:bg-gray-400');
+        indicatorsContainer.appendChild(button);
+    }
+    
+    const testimonialIndicators = document.querySelectorAll('.testimonial-indicator');
+    
+    function updateTestimonialIndicators() {
+        if (!testimonialsScroll || !testimonialCards[0]) return;
+        
+        const scrollLeft = testimonialsScroll.scrollLeft;
+        const cardWidth = testimonialCards[0].offsetWidth;
+        const gap = 32;
+        const scrollAmount = (cardWidth + gap) * cardsPerPage;
+        
+        // Calculate which page we're on
+        let currentPage = Math.round(scrollLeft / scrollAmount);
+        
+        // Clamp to valid range
+        currentPage = Math.max(0, Math.min(currentPage, totalPages - 1));
+        
+        // Update indicators
+        testimonialIndicators.forEach((indicator, i) => {
+            if (i === currentPage) {
+                indicator.classList.remove('bg-gray-300', 'hover:bg-gray-400');
+                indicator.classList.add('bg-red-500');
+            } else {
+                indicator.classList.add('bg-gray-300', 'hover:bg-gray-400');
+                indicator.classList.remove('bg-red-500');
+            }
+        });
+    }
+    
+    testimonialIndicators.forEach((indicator) => {
+        indicator.addEventListener('click', () => {
+            const page = parseInt(indicator.getAttribute('data-page'));
+            const cardWidth = testimonialCards[0]?.offsetWidth || 320;
+            const gap = 32;
+            const scrollAmount = (cardWidth + gap) * cardsPerPage;
+            testimonialsScroll.scrollTo({
+                left: page * scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+    });
+    
+    testimonialsScroll.addEventListener('scroll', updateTestimonialIndicators);
+    // Initial update
+    updateTestimonialIndicators();
 }
 
 // Scroll-reveal animation
