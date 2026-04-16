@@ -77,7 +77,16 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
             <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">Despre Noi</h2>
             <div class="grid md:grid-cols-2 gap-12 items-center">
-                <img src="images/about_us/people.jpg" alt="About Us" class="rounded-lg shadow-lg w-full">
+                <div class="relative">
+                    <div class="relative overflow-hidden rounded-lg shadow-lg bg-gray-100">
+                        <div id="about-carousel-wrapper" class="relative w-full h-72 md:h-80 touch-pan-y cursor-pointer">
+                            <!-- images injected by JS -->
+                        </div>
+                        <button id="about-carousel-prev" class="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/75 text-white rounded-full w-10 h-10 flex items-center justify-center transition">❮</button>
+                        <button id="about-carousel-next" class="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/75 text-white rounded-full w-10 h-10 flex items-center justify-center transition">❯</button>
+                    </div>
+                    <div id="about-carousel-indicators" class="flex justify-center gap-2 mt-4"></div>
+                </div>
                 <div>
                     <p class="text-gray-700 text-lg mb-4">
                         Bine ați venit la Power Fitness, destinația ideală pentru atingerea obiectivelor dumneavoastră de fitness.</p>
@@ -226,7 +235,7 @@ Rezultatele nu se lasă mult timp așteptate.
     <div id="image-lightbox" class="hidden fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
         <div class="relative max-w-4xl max-h-[90vh] w-full">
             <img id="lightbox-image" src="" alt="Full Size" class="w-full h-full object-contain rounded-lg">
-            <button id="lightbox-close" class="absolute top-4 right-4 bg-white/20 hover:bg-white/40 text-white rounded-full w-12 h-12 flex items-center justify-center transition text-2xl">
+            <button id="lightbox-close" class="absolute top-4 right-4 rounded-full w-12 h-12 flex items-center justify-center transition text-3xl font-bold text-white mix-blend-difference">
                 ✕
             </button>
         </div>
@@ -319,6 +328,11 @@ Rezultatele nu se lasă mult timp așteptate.
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/gallery.js"></script>
+    <script src="js/about_us.js"></script>
+    <script src="js/testimonials.js"></script>
+    <script src="js/animations.js"></script>
 </body>
 </html>
