@@ -24,5 +24,5 @@ const aboutCarousel = buildCarousel({
 });
 
 document.getElementById("about-carousel-wrapper").addEventListener("click", () => {
-  openLightbox(ABOUT_US_IMAGES[aboutCarousel.getCurrentIndex()].src);
+  openLightbox(ABOUT_US_IMAGES, aboutCarousel.getCurrentIndex());
 });

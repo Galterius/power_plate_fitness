@@ -28,10 +28,28 @@ const galleryCarousel = buildCarousel({
 const lightbox = document.getElementById("image-lightbox");
 const lightboxImage = document.getElementById("lightbox-image");
 const lightboxClose = document.getElementById("lightbox-close");
+const lightboxPrev = document.getElementById("lightbox-prev");
+const lightboxNext = document.getElementById("lightbox-next");
+
+let lightboxImages = [];
+let lightboxIndex = 0;
+
+function lightboxShow(index) {
+  if (index < 0) index = lightboxImages.length - 1;
+  if (index >= lightboxImages.length) index = 0;
+  lightboxIndex = index;
+  lightboxImage.src = lightboxImages[index].src;
+}
 
 // openLightbox is global so about_us.js can call it too
-function openLightbox(src) {
-  lightboxImage.src = src;
+function openLightbox(images, index) {
+  lightboxImages = images;
+  lightboxIndex = index;
+  lightboxImage.src = images[index].src;
+  // Hide nav buttons if only one image
+  const showNav = images.length > 1;
+  lightboxPrev.classList.toggle("hidden", !showNav);
+  lightboxNext.classList.toggle("hidden", !showNav);
   lightbox.classList.remove("hidden");
   document.body.style.overflow = "hidden";
 }
@@ -42,14 +60,18 @@ function closeLightbox() {
 }
 
 document.getElementById("carousel-wrapper").addEventListener("click", () => {
-  openLightbox(EQUIPMENT_IMAGES[galleryCarousel.getCurrentIndex()].src);
+  openLightbox(EQUIPMENT_IMAGES, galleryCarousel.getCurrentIndex());
 });
 
+lightboxPrev.addEventListener("click", (e) => { e.stopPropagation(); lightboxShow(lightboxIndex - 1); });
+lightboxNext.addEventListener("click", (e) => { e.stopPropagation(); lightboxShow(lightboxIndex + 1); });
 lightboxClose.addEventListener("click", closeLightbox);
 lightbox.addEventListener("click", (e) => {
   if (e.target === lightbox) closeLightbox();
 });
 document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && !lightbox.classList.contains("hidden"))
-    closeLightbox();
+  if (lightbox.classList.contains("hidden")) return;
+  if (e.key === "Escape") closeLightbox();
+  if (e.key === "ArrowLeft") lightboxShow(lightboxIndex - 1);
+  if (e.key === "ArrowRight") lightboxShow(lightboxIndex + 1);
 });
