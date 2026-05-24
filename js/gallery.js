@@ -3,16 +3,16 @@
 const EQUIPMENT_IMAGES = [
   {
     src: "images/equipment/WhatsApp Image 2026-04-15 at 13.21.28.jpeg",
-    alt: "Echipamente sala",
+    alt: "Aparat Power Plate la Power Fitness Târgu Mureș",
   },
   {
     src: "images/equipment/WhatsApp Image 2026-04-15 at 13.22.18.jpeg",
-    alt: "Echipamente sala",
+    alt: "Antrenamente de grup pe aparate Power Plate",
   },
-  { src: "images/equipment/eqp.jpg", alt: "Echipamente Power Plate" },
+  { src: "images/equipment/eqp.jpg", alt: "Aparat Power Plate de calitate medicală" },
   {
     src: "images/equipment/WhatsApp Image 2026-04-15 at 13.24.56.jpeg",
-    alt: "Echipamente sala",
+    alt: "Sala de fitness Power Fitness Târgu Mureș",
   },
 ];
 
@@ -39,6 +39,7 @@ function lightboxShow(index) {
   if (index >= lightboxImages.length) index = 0;
   lightboxIndex = index;
   lightboxImage.src = lightboxImages[index].src;
+  lightboxImage.alt = lightboxImages[index].alt;
 }
 
 // openLightbox is global so about_us.js can call it too
@@ -46,6 +47,7 @@ function openLightbox(images, index) {
   lightboxImages = images;
   lightboxIndex = index;
   lightboxImage.src = images[index].src;
+  lightboxImage.alt = images[index].alt;
   // Hide nav buttons if only one image
   const showNav = images.length > 1;
   lightboxPrev.classList.toggle("hidden", !showNav);

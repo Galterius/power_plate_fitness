@@ -3,15 +3,15 @@
 const ABOUT_US_IMAGES = [
   {
     src: "images/about_us/people.jpg",
-    alt: "Echipamente sala",
+    alt: "Membri Power Fitness în timpul antrenamentului Power Plate",
   },
   {
     src: "images/about_us/WhatsApp Image 2026-04-15 at 13.24.55 (1).jpeg",
-    alt: "Echipamente sala",
+    alt: "Sala Power Fitness Târgu Mureș",
   },
   {
     src: "images/about_us/WhatsApp Image 2026-04-15 at 13.24.55.jpeg",
-    alt: "Echipamente sala",
+    alt: "Aparate Power Plate la Power Fitness Târgu Mureș",
   },
 ];
 
