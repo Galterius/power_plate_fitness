@@ -2,11 +2,6 @@
 // To add or remove images/videos, edit this array (order = slide order):
 const EQUIPMENT_IMAGES = [
   {
-    video: "videos/video-1.mp4",
-    poster: "videos/video-1-poster.jpg",
-    alt: "Video antrenament Power Plate la Power Fitness Târgu Mureș",
-  },
-  {
     src: "images/equipment/WhatsApp Image 2026-04-15 at 13.21.28.jpeg",
     alt: "Aparat Power Plate la Power Fitness Târgu Mureș",
   },
@@ -14,20 +9,10 @@ const EQUIPMENT_IMAGES = [
     src: "images/equipment/WhatsApp Image 2026-04-15 at 13.22.18.jpeg",
     alt: "Antrenamente de grup pe aparate Power Plate",
   },
-  {
-    video: "videos/video-2.mp4",
-    poster: "videos/video-2-poster.jpg",
-    alt: "Exerciții pe platforma vibrantă Power Plate",
-  },
   { src: "images/equipment/eqp.jpg", alt: "Aparat Power Plate de calitate medicală" },
   {
     src: "images/equipment/WhatsApp Image 2026-04-15 at 13.24.56.jpeg",
     alt: "Sala de fitness Power Fitness Târgu Mureș",
-  },
-  {
-    video: "videos/video-3.mp4",
-    poster: "videos/video-3-poster.jpg",
-    alt: "Antrenament pe aparatul Power Plate",
   },
 ];
 
